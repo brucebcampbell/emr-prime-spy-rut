@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS financial_data CASCADE;
+CREATE DATABASE financial_data;
 use financial_data;
 
 drop table if exists price_temp;
@@ -19,7 +21,7 @@ LOAD DATA LOCAL INPATH '${hiveconf:fileName}' OVERWRITE INTO TABLE price_temp;
 insert into table ${hiveconf:basketTable}
 select 
 '${hiveconf:tickerName}' as tickerName,
-DateOfPrice as Date,
+DateOfPrice ,
 Open as Open,
 High as High,
 Low as Low,

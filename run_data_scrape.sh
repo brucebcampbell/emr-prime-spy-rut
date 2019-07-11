@@ -1,10 +1,10 @@
 #!/bin/bash
 
+rm -rf SPY
+rm -rf RUT
+
 mkdir SPY
-
 mkdir RUT
-
-hive -e "CREATE DATABASE financial_data"
 
 hive -f FinancialData_CreateDatabaseTables.sql
 
