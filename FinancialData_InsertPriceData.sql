@@ -1,5 +1,4 @@
-DROP DATABASE IF EXISTS financial_data CASCADE;
-CREATE DATABASE financial_data;
+
 use financial_data;
 
 drop table if exists price_temp;
