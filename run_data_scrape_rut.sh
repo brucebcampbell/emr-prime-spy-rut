@@ -13,7 +13,9 @@ echo $var1, $var2, $var3
 
 ./../getdata.sh $var1
 
-hive -f ../FinancialData_InsertPriceData.sql  --hiveconf basketTable=rut_price --hiveconf fileName=inputData.csv --hiveconf tickerName=$var1
+fileName=`pwd`'/'$var1.csv
+
+hive -f ../FinancialData_InsertPriceData.sql --hiveconf basketTable=spy_price --hiveconf fileName=$fileName --hiveconf tickerName=$var1
 
 #sleep 5
 done <rut_tickers.csv

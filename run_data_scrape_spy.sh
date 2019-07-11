@@ -11,16 +11,9 @@ echo $var1, $var2, $var3
 
 ./../getdata.sh $var1
 
-# rm inputData.csv
+fileName=`pwd`'/'$var1.csv
 
-# echo "________________________"
-# echo 'table.csv?s='$var1
-# echo "________________________"
-
-# mv table.csv\?s\=$var1 inputData.csv
-
-hive -f ../FinancialData_InsertPriceData.sql --hiveconf basketTable=spy_price --hiveconf fileName=inputData.csv --hiveconf tickerName=$var1
-
+hive -f ../FinancialData_InsertPriceData.sql --hiveconf basketTable=spy_price --hiveconf fileName=$fileName --hiveconf tickerName=$var1
 
 sleep 5
 
