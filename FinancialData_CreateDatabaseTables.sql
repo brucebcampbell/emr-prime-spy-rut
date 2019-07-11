@@ -1,4 +1,5 @@
-
+DROP DATABASE IF EXISTS financial_data CASCADE;
+CREATE DATABASE financial_data;
 USE financial_data;
 
 drop TABLE if exists spy_price;
