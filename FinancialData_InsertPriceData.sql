@@ -1,4 +1,3 @@
-
 use financial_data;
 
 drop table if exists price_temp;
@@ -9,8 +8,8 @@ Open double,
 High double,
 Low double,
 Close double,
-Volume double,
-AdjClose double
+AdjClose double,
+Volume double
 )ROW FORMAT DELIMITED
     FIELDS TERMINATED BY ','
     STORED AS TEXTFILE tblproperties ("skip.header.line.count"="1");
@@ -25,11 +24,9 @@ Open as Open,
 High as High,
 Low as Low,
 Close as Close,
-Volume as Volume,
-AdjClose as AdjClose 
+AdjClose as AdjClose,
+Volume as Volume 
 from price_temp;
-
-
 
 insert into table '${hiveconf:basketTable}_extern'
 select 
@@ -39,7 +36,7 @@ Open as Open,
 High as High,
 Low as Low,
 Close as Close,
-Volume as Volume,
-AdjClose as AdjClose 
+AdjClose as AdjClose,
+Volume as Volume 
 from price_temp;
 
